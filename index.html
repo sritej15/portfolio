@@ -137,17 +137,99 @@ nav .links{gap:14px} nav .links a{font-size:11px}
 .gqp-modal.show{display:flex;align-items:center;justify-content:center}
 .gqp-modal img{max-width:95%;max-height:95%;border-radius:6px}
 
+/* === CASE STUDIES === */
+.case-grid{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.case-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.case-wrap{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color 0.2s}
+.case-wrap:hover{border-color:#4a4a52}
+.case-wrap.open{border-color:#4a4a52}
+.case-trigger{display:block;width:100%;text-align:left;background:none;border:none;color:inherit;font:inherit;padding:22px 24px 18px;cursor:pointer;transition:background 0.2s}
+.case-trigger:hover{background:rgba(255,255,255,0.015)}
+.case-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.case-title{font-family:var(--font-display);font-weight:600;font-size:18px;line-height:1.3;color:var(--text);margin-bottom:10px}
+.case-wide .case-title{font-size:20px;line-height:1.25}
+.case-hook{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
+.case-includes{font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:14px;padding-top:12px;border-top:1px solid var(--muted-border)}
+.case-includes strong{color:var(--text);font-weight:500}
+.case-cta{font-size:12px;font-weight:600;color:var(--text);letter-spacing:0.02em;display:inline-flex;align-items:center;gap:4px}
+.case-deep{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.45s ease}
+.case-wrap.open > .case-deep{grid-template-rows:1fr}
+.case-deep-inner{overflow:hidden;min-height:0}
+.case-body{padding:6px 24px 18px;border-top:1px solid var(--muted-border)}
+.case-collapse-btn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--accent);background:none;border:1px solid var(--border);border-radius:5px;padding:8px 14px;margin:6px 24px 22px;cursor:pointer;transition:border-color 0.2s,color 0.2s;font-family:var(--font-body)}
+.case-collapse-btn:hover{border-color:var(--accent);color:var(--text)}
+/* Nested cards inside an expanded parent */
+.case-deep-inner .case-wrap{margin:14px 24px;border-radius:6px;background:#16161a}
+.case-deep-inner .case-wrap:first-of-type{margin-top:6px}
+.case-deep-inner .case-trigger{padding:18px 20px 14px}
+.case-deep-inner .case-title{font-size:16px}
+.case-deep-inner .case-body{padding:6px 20px 14px}
+.case-deep-inner .case-collapse-btn{margin:4px 20px 16px}
+
+/* === SKILLS === */
+.skills-grid{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+.skill-cat-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.skill-tag{display:inline-block;font-size:12px;font-weight:500;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);padding:5px 11px;border-radius:5px;line-height:1.3;transition:border-color 0.2s,color 0.2s}
+.skill-tag:hover{border-color:#4a4a52;color:var(--text)}
+
+/* === Carousel WIP badge === */
+.cap-wip{display:inline-block;font-size:9px;font-weight:600;letter-spacing:0.08em;color:#999;background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.18);padding:1px 6px;border-radius:3px;margin-left:8px;vertical-align:middle;text-transform:uppercase}
+
+/* === PM Report tile (uses same expand pattern as case cards) === */
+.pdf-embed{width:100%;height:720px;border:1px solid var(--border);border-radius:6px;background:#0a0a0c;display:block}
+.pdf-fallback{font-size:12px;color:var(--text-muted);margin-top:8px;text-align:center}
+.pdf-fallback a{color:var(--accent);text-decoration:none}
+.pdf-fallback a:hover{color:var(--text)}
+@media(max-width:640px){.pdf-embed{height:540px}}
+
+/* === Namespaced case body content (pulled from combined scroll, scoped to .case-body) === */
+.case-body p, .case-body div { color: var(--text); }
+.case-body .subtitle{font-size:14px;color:var(--text-muted);font-style:italic;margin:0 0 16px}
+.case-body .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:14px}
+.case-body .block{padding:0}
+.case-body .label{font-size:10.5px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin:14px 0 7px}
+.case-body .body-text{font-size:13.5px;color:var(--text-muted);line-height:1.65}
+.case-body .body-text strong{color:var(--text);font-weight:500}
+.case-body .body-wide{font-size:13.5px;color:var(--text-muted);line-height:1.65;margin-bottom:10px}
+.case-body .body-wide strong{color:var(--text);font-weight:500}
+.case-body ul.beats{list-style:none;padding:0;margin:0 0 8px}
+.case-body ul.beats li{font-size:13.5px;color:var(--text-muted);line-height:1.6;padding:3px 0 3px 16px;position:relative}
+.case-body ul.beats li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.case-body ul.beats li strong{color:var(--text);font-weight:500}
+.case-body .thread-lead{font-style:italic;color:var(--accent)}
+.case-body .visual{margin:10px 0;border:1px solid var(--border);border-radius:6px;padding:12px 14px 10px;background:#15151a}
+.case-body .visual svg{display:block;width:100%;height:auto}
+.case-body .caption{font-size:11.5px;color:var(--text-muted);margin-top:6px;font-style:italic;text-align:center}
+.case-body .pointers{margin-top:14px;padding:14px 16px;background:#15151a;border-left:2px solid #4a6b5a;border-radius:0 4px 4px 0}
+.case-body .pointer-label{font-size:10.5px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+.case-body .pointer-item{font-size:13px;color:var(--text-muted);line-height:1.65;margin-bottom:5px}
+.case-body .pointer-item:last-child{margin-bottom:0}
+.case-body .pointer-tag{font-weight:600;color:#7aa895}
+.case-body svg text{font-family:'DM Sans',sans-serif}
+@media(max-width:640px){
+  .case-row{grid-template-columns:1fr}
+  .case-body .grid-2{grid-template-columns:1fr;gap:14px}
+  .case-deep-inner .case-wrap{margin:14px 14px}
+  .case-deep-inner .case-body{padding:6px 14px 12px}
+  .case-deep-inner .case-trigger{padding:16px 14px 12px}
+  .case-deep-inner .case-collapse-btn{margin:4px 14px 14px}
+  .case-trigger{padding:18px 18px 14px}
+  .case-body{padding:6px 18px 14px}
+  .case-collapse-btn{margin:6px 18px 18px}
+}
+
 </style>
 </head>
 <body>
 
 <nav><div class="container">
 <div class="name">Sritej Canchi</div>
-<div class="links"><a href="#shipped">Shipped</a><a href="#pillars">Expertise</a><a href="#testimonials">Credits</a><a href="#contact">Contact</a></div>
+<div class="links"><a href="#shipped">Shipped</a><a href="#case-studies">Case Studies</a><a href="#pillars">Expertise</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
 </div></nav>
 
 <header class="hero"><div class="container">
-<div class="eyebrow">Player Insights · Product Quality · Game Production</div>
+<div class="eyebrow">Product/Gameplay Analysis · Player Insights · Product Quality · Game Production</div>
 <h1>Representing the player <em>from inside the build</em></h1>
 <p class="lede">8+ years at <strong>Amazon Games</strong> and <strong>Electronic Arts</strong> designing gameplay tests, identifying patterns in player behavior, and turning findings into clear insights that shape design, product, and content decisions. I evaluate whether a weapon feels satisfying to fire, whether progression pacing holds players or loses them, whether an onboarding flow teaches or frustrates. I work across playtesting, player analytics, and production, partnering with designers, producers, and technical leads to ship games people want to keep playing.</p>
 <div class="meta">
@@ -178,9 +260,686 @@ nav .links{gap:14px} nav .links a{font-size:11px}
 </div>
 </div></section>
 
+<section id="case-studies"><div class="container">
+<div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Case Studies</div>
+<div style="font-family:var(--font-display);font-weight:600;font-size:22px;margin-bottom:10px">Four investigations from inside the build</div>
+<div style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin-bottom:24px;max-width:720px">Four cases at AAA scale, spanning telemetry funnel analysis, longitudinal playtest synthesis, comparative research methodology, and quality-grading frameworks for external QA partners. Each one follows a player signal past the obvious explanation and synthesizes across qualitative and quantitative evidence into an insight that design, PM, and engineering acted on.</div>
+
+<div class="case-grid">
+
+<!-- ============== TOMB RAIDER ENGAGEMENT (Card 1, with nested Cases 02 + 04) ============== -->
+<div class="case-wrap case-wide" id="case-tr">
+  <button class="case-trigger" onclick="toggleCase(this)">
+    <div class="case-eyebrow">Tomb Raider · Engagement overview</div>
+    <div class="case-title">Embedding cultural analysis and experiential feedback in the AAA development cycle</div>
+    <div class="case-hook">Three threads of research and methodology work on one milestone cadence. Cultural representation review on every build. Methodology transfer to the external QA vendor team. Upstream content advisory that built the evidence base for a staffed cultural function.</div>
+    <div class="case-includes"><strong>Includes</strong> Case 02 (cultural research methodology) and Case 04 (vendor quality framework) as nested deep dives.</div>
+    <div class="case-cta" data-collapsed="Expand engagement ↓" data-expanded="Collapse ↑">Expand engagement ↓</div>
+  </button>
+  <div class="case-deep">
+    <div class="case-deep-inner">
+      <div class="case-body">
+        <p class="subtitle">Three threads of research and methodology work on one milestone cadence</p>
+
+  <div class="grid-2">
+    <div class="block">
+      <div class="label">Context</div>
+      <div class="body-text">Tomb Raider, early production, Crystal Dynamics with Amazon Games Production. I ran three parallel tracks of research and methodology work inside the milestone cadence: cultural representation review on every build, methodology guidance for the external QA vendor team, and upstream content advisory to protect IP reputation and player trust.</div>
+    </div>
+    <div class="block">
+      <div class="label">Signal</div>
+      <div class="body-text">Cultural nuance in a globally released AAA title defaults to Western reference points unless someone is in the room asking different questions. The QA vendor team was delivering experiential feedback, but categorizing it loosely, which made their findings hard to act on at milestone reviews. The content review team needed an evidence base to formalize cultural review as a staffed function.</div>
+    </div>
+  </div>
+
+  <div class="visual">
+    <svg width="100%" viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="20" y="16">Three threads, one milestone cadence</text>
+      <text font-size="9" fill="#85827c" x="20" y="29">The threads overlapped where milestone decisions got made</text>
+
+      <!-- Cultural review (top left) -->
+      <ellipse cx="245" cy="125" rx="125" ry="65" fill="#3a1f1f" fill-opacity="0.55" stroke="#8a3535" stroke-width="0.75"/>
+
+      <!-- Vendor methodology (top right) -->
+      <ellipse cx="395" cy="125" rx="125" ry="65" fill="#1f2a24" fill-opacity="0.75" stroke="#4a6b5a" stroke-width="0.75"/>
+
+      <!-- Function building (bottom center) -->
+      <ellipse cx="320" cy="180" rx="125" ry="55" fill="#252235" fill-opacity="0.75" stroke="#5a4a7a" stroke-width="0.75"/>
+
+      <!-- Thread labels -->
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="155" y="100" text-anchor="middle">Cultural review</text>
+      <text font-size="9" fill="#c08080" x="155" y="113" text-anchor="middle" font-style="italic">every milestone build</text>
+
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="485" y="100" text-anchor="middle">Vendor methodology</text>
+      <text font-size="9" fill="#7aa895" x="485" y="113" text-anchor="middle" font-style="italic">QX Scale, GDF phases</text>
+
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="320" y="215" text-anchor="middle">Function building</text>
+      <text font-size="9" fill="#9a8ab5" x="320" y="227" text-anchor="middle" font-style="italic">business case for cultural consultant</text>
+
+      <!-- Overlap labels -->
+      <text font-size="9" fill="#d0cdc7" x="320" y="125" text-anchor="middle" font-weight="500">milestone reports</text>
+      <text font-size="9" fill="#d0cdc7" x="265" y="160" text-anchor="middle" font-weight="500">evidence base</text>
+      <text font-size="9" fill="#d0cdc7" x="378" y="160" text-anchor="middle" font-weight="500">grading vocabulary</text>
+    </svg>
+    <div class="caption">Three threads overlapped where milestone decisions were made, rolled up, and formalized.</div>
+  </div>
+
+  <div class="label">Method</div>
+  <div class="body-wide"><span class="thread-lead">Cultural review, every milestone.</span> Reviewed builds against South Asian cultural context and pushed feedback through Amazon Games Production to Crystal Dynamics. NPC interactions, background music, VO, level assets, and character appearances were all in scope. The work used a two-tier methodology: routine review on every build, and comparative case analysis as the escalation tool when routine review wasn't enough.</div>
+
+  <div class="body-wide"><span class="thread-lead">Vendor methodology, end to end.</span> Onboarded the external QA team to the EA QX Scale, taught them to grade features by GDF phase (Ideation, Development, Release) and QX grade (NR through A+), and shaped how their reports rolled up into milestone deliverables. Coached the team across milestones, calibrating against internal builds.</div>
+
+  <div class="body-wide"><span class="thread-lead">Upstream function building.</span> The accumulated cultural work, including the comparative analysis, became part of the evidence base the content review team used to build a business case for hiring a dedicated cultural consultant / localization expert.</div>
+
+  <div class="pointers">
+    <div class="pointer-label">Deep dives</div>
+    <div class="pointer-item"><span class="pointer-tag">Case 02</span> covers the cultural review methodology, including the comparative case analysis on a specific NPC interaction (mapped against four AAA titles with documented representational backlash) and the content review team's capacity case</div>
+    <div class="pointer-item"><span class="pointer-tag">Case 04</span> covers the QX Scale transfer to the external QA vendor team, including the before/after of vendor feedback structure and how graded findings fed milestone acceptance and go/no-go decisions</div>
+  </div>
+      </div>
+
+      <!-- ===== Nested Case 02 ===== -->
+      <div class="case-wrap" id="case-02">
+        <button class="case-trigger" onclick="toggleCase(this)">
+          <div class="case-eyebrow">Case 02 · Cultural research methodology</div>
+          <div class="case-title">Cultural risk analysis as a milestone-cadence practice on Tomb Raider</div>
+          <div class="case-hook">A AAA title with global reach can't run cultural review on intuition. Building a repeatable methodology for routine concerns and deeper edge-case risks.</div>
+          <div class="case-cta" data-collapsed="Expand case study ↓" data-expanded="Collapse ↑">Expand case study ↓</div>
+        </button>
+        <div class="case-deep">
+          <div class="case-deep-inner">
+            <div class="case-body">
+              <p class="subtitle">A standing methodology applied to every build, with comparative case analysis as the deepest tool when warranted</p>
+
+  <div class="grid-2">
+    <div class="block">
+      <div class="label">Context</div>
+      <div class="body-text">Tomb Raider, early production, Crystal Dynamics with Amazon Games Production. As the embedded South Asian cultural reviewer, I was responsible for surfacing representational risk on every milestone build, across every feature in scope: NPC interactions, level assets, character design, background music, VO. The cadence was constant. The work needed a methodology, not just instinct.</div>
+    </div>
+    <div class="block">
+      <div class="label">Signal</div>
+      <div class="body-text">A AAA title with global reach can't run cultural review on intuition. Pattern recognition needs to be repeatable across milestones, defensible to design teams, and structured enough to flag both routine concerns (handled in feedback loops) and edge-case risks (warranting deeper analysis). The content review team also needed an evidence base to formalize cultural review as a staffed function.</div>
+    </div>
+  </div>
+
+  <div class="visual">
+    <svg width="100%" viewBox="0 0 640 75" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrF" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/>
+        </marker>
+      </defs>
+
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="20" y="13">The cultural risk analysis methodology, applied per milestone</text>
+
+      <rect x="20" y="25" width="108" height="36" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="4"/>
+      <text font-size="9" font-weight="500" fill="#d0cdc7" x="74" y="42" text-anchor="middle">1. Build cadence</text>
+      <text font-size="8" fill="#85827c" x="74" y="54" text-anchor="middle">milestone trigger</text>
+
+      <line x1="130" y1="43" x2="148" y2="43" stroke="#85827c" stroke-width="1" marker-end="url(#arrF)"/>
+
+      <rect x="150" y="25" width="108" height="36" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="4"/>
+      <text font-size="9" font-weight="500" fill="#d0cdc7" x="204" y="42" text-anchor="middle">2. Routine review</text>
+      <text font-size="8" fill="#85827c" x="204" y="54" text-anchor="middle">all features in scope</text>
+
+      <line x1="260" y1="43" x2="278" y2="43" stroke="#85827c" stroke-width="1" marker-end="url(#arrF)"/>
+
+      <rect x="280" y="25" width="108" height="36" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="4"/>
+      <text font-size="9" font-weight="500" fill="#d0cdc7" x="334" y="42" text-anchor="middle">3. Risk threshold</text>
+      <text font-size="8" fill="#85827c" x="334" y="54" text-anchor="middle">routine vs. escalate</text>
+
+      <line x1="390" y1="43" x2="408" y2="43" stroke="#85827c" stroke-width="1" marker-end="url(#arrF)"/>
+
+      <rect x="410" y="25" width="108" height="36" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="4"/>
+      <text font-size="9" font-weight="500" fill="#d0cdc7" x="464" y="42" text-anchor="middle">4. Comparative</text>
+      <text font-size="8" fill="#85827c" x="464" y="54" text-anchor="middle">case analysis (deep)</text>
+
+      <line x1="520" y1="43" x2="538" y2="43" stroke="#85827c" stroke-width="1" marker-end="url(#arrF)"/>
+
+      <rect x="540" y="25" width="80" height="36" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="4"/>
+      <text font-size="9" font-weight="500" fill="#d0cdc7" x="580" y="42" text-anchor="middle">5. Output</text>
+      <text font-size="8" fill="#85827c" x="580" y="54" text-anchor="middle">decision-grade</text>
+    </svg>
+  </div>
+
+  <div class="label">Method</div>
+  <div class="body-wide">The methodology had two tiers. <span class="thread-lead">Routine review</span> ran every milestone against an evolving set of cultural exposure dimensions: representational framing, audience resonance, language and music authenticity, NPC interaction context, asset and costume specificity. Findings were resolved through standard feedback loops with Crystal Dynamics through Amazon Games Production. Most milestones produced routine adjustments, including a copyright-risk VO catch (turned out to be placeholder content, but the catch confirmed the review process was working) and regional music nuances that the team adopted into subsequent builds.</div>
+
+  <div class="body-wide"><span class="thread-lead">Comparative case analysis</span> was the escalation tool, applied when routine review surfaced something the standard feedback loop wasn't built to handle. The clearest example: a design decision involving an NPC interaction with a culturally-significant element in the game's geographical setting. I ran a retrospective comparative analysis against four AAA titles with documented representational backlash and mapped the patterns against the Tomb Raider interaction (see Fig 2 below) to identify shared exposures, where risk concentrated, and where the analogy broke down.</div>
+
+  <div class="visual">
+    <svg width="100%" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="20" y="14">Fig 2 example: comparative case analysis applied to one design decision</text>
+      <text font-size="9" fill="#85827c" x="20" y="26">Four AAA titles with documented representational backlash, mapped against design exposure dimensions</text>
+
+      <line x1="20" y1="40" x2="620" y2="40" stroke="#2c2c32" stroke-width="0.5"/>
+
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="28" y="55">Title</text>
+
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="195" y="48" text-anchor="middle">Culturally</text>
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="195" y="59" text-anchor="middle">significant element</text>
+
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="310" y="48" text-anchor="middle">Representational</text>
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="310" y="59" text-anchor="middle">framing risk</text>
+
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="420" y="48" text-anchor="middle">Audience</text>
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="420" y="59" text-anchor="middle">resonance</text>
+
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="540" y="48" text-anchor="middle">Backlash</text>
+      <text font-size="8.5" font-weight="500" fill="#97a0a9" x="540" y="59" text-anchor="middle">scale</text>
+
+      <line x1="20" y1="66" x2="620" y2="66" stroke="#2c2c32" stroke-width="0.5"/>
+
+      <text font-size="9.5" fill="#d0cdc7" x="28" y="80" font-weight="500">Cyberpunk 2077</text>
+      <text font-size="8" fill="#85827c" x="28" y="89" font-style="italic">CDPR, 2020</text>
+      <circle cx="195" cy="84" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <circle cx="310" cy="84" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <circle cx="420" cy="84" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <text font-size="8.5" fill="#d0cdc7" x="540" y="87" text-anchor="middle">Sustained</text>
+
+      <line x1="20" y1="97" x2="620" y2="97" stroke="#2c2c32" stroke-width="0.3"/>
+
+      <text font-size="9.5" fill="#d0cdc7" x="28" y="111" font-weight="500">Genshin Impact</text>
+      <text font-size="8" fill="#85827c" x="28" y="120" font-style="italic">HoYoverse, 2020-</text>
+      <circle cx="195" cy="115" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <circle cx="310" cy="115" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <circle cx="420" cy="115" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <text font-size="8.5" fill="#d0cdc7" x="540" y="118" text-anchor="middle">70K+ petition</text>
+
+      <line x1="20" y1="128" x2="620" y2="128" stroke="#2c2c32" stroke-width="0.3"/>
+
+      <text font-size="9.5" fill="#d0cdc7" x="28" y="142" font-weight="500">Assassin's Creed Shadows</text>
+      <text font-size="8" fill="#85827c" x="28" y="151" font-style="italic">Ubisoft, 2024</text>
+      <circle cx="195" cy="146" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <circle cx="310" cy="146" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <circle cx="420" cy="146" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <text font-size="8.5" fill="#d0cdc7" x="540" y="149" text-anchor="middle">Sustained</text>
+
+      <line x1="20" y1="159" x2="620" y2="159" stroke="#2c2c32" stroke-width="0.3"/>
+
+      <text font-size="9.5" fill="#d0cdc7" x="28" y="172" font-weight="500">Punch-Out!! / CoD series</text>
+      <text font-size="8" fill="#85827c" x="28" y="181" font-style="italic">Nintendo, Activision</text>
+      <circle cx="195" cy="176" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <circle cx="310" cy="176" r="6" fill="#8a3535" fill-opacity="0.85"/>
+      <circle cx="420" cy="176" r="5" fill="#8a3535" fill-opacity="0.5"/>
+      <text font-size="8.5" fill="#d0cdc7" x="540" y="179" text-anchor="middle">Recurring</text>
+
+      <line x1="20" y1="186" x2="620" y2="186" stroke="#4a6b5a" stroke-width="0.75"/>
+
+      <text font-size="9.5" fill="#d0cdc7" x="28" y="198" font-weight="500">Tomb Raider interaction</text>
+      <circle cx="195" cy="196" r="6" fill="#c08050" fill-opacity="0.85"/>
+      <circle cx="310" cy="196" r="6" fill="#c08050" fill-opacity="0.85"/>
+      <circle cx="420" cy="196" r="6" fill="#c08050" fill-opacity="0.85"/>
+      <text font-size="8.5" fill="#c08050" x="540" y="199" text-anchor="middle">Pre-ship risk</text>
+    </svg>
+  </div>
+
+  <div class="label">Insight</div>
+  <div class="body-wide">Cultural review on a globally released IP needs a methodology, not just judgment. A two-tier approach, routine review for the standard cases and comparative case analysis for the deeper ones, gives the team both repeatable coverage and rigorous escalation. Once cultural review is structured this way, it becomes scaleable: other teams adopt the same pattern, the work moves from individual contribution to organizational practice.</div>
+
+  <div class="label">Action &amp; outcome</div>
+  <ul class="beats">
+    <li>Cultural feedback was adopted into build decisions across milestones, including regional music nuances and content-level review on NPC, asset, and VO elements</li>
+    <li>The comparative case analysis on the NPC interaction was presented to design with the four-title backlash mapping. Designers acknowledged the analysis and deferred the decision to later milestones for more consideration</li>
+    <li>The methodology's evidence base across milestones contributed to a business case the content review team built for hiring a dedicated cultural consultant / localization expert. The case was in review when I left the project</li>
+    <li>Adoption of structured analysis spread beyond cultural review. Once the methodology was established as a milestone-cadence practice, the QA vendor team asked for similar rigor in their own feedback. Case 04 covers the QX Scale transfer that followed</li>
+  </ul>
+            </div>
+            <button class="case-collapse-btn" onclick="collapseFromBottom(this)">↑ Collapse case study</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Nested Case 04 ===== -->
+      <div class="case-wrap" id="case-04">
+        <button class="case-trigger" onclick="toggleCase(this)">
+          <div class="case-eyebrow">Case 04 · Vendor quality framework</div>
+          <div class="case-title">QX Scale transfer: structured vendor feedback that upgraded milestone acceptance decisions</div>
+          <div class="case-hook">Vendor reports of "combat feels off" can't be prioritized at milestone reviews. Transferring a quality-grading framework so external QA findings carried the same scope and gradient as internal ones.</div>
+          <div class="case-cta" data-collapsed="Expand case study ↓" data-expanded="Collapse ↑">Expand case study ↓</div>
+        </button>
+        <div class="case-deep">
+          <div class="case-deep-inner">
+            <div class="case-body">
+              <p class="subtitle">Introducing a quality-grading framework to an external QA team, and coaching adoption through the full engagement</p>
+
+  <div class="grid-2">
+    <div class="block">
+      <div class="label">Context</div>
+      <div class="body-text">This case is a continuation of Case 02. Once structured cultural risk analysis was established as a milestone-cadence practice, the QA vendor team asked for similar rigor in their own feedback. The QX Scale transfer was the answer. Tomb Raider, early production, Crystal Dynamics with Amazon Games Production. Amazon Games had engaged an external QA vendor team (10-15 engineers across multiple studios) to do exploratory, ad-hoc, and playtest-based evaluation alongside standard QA. Their experiential observations were useful. Their reports weren't structured to let design act on them consistently at milestone reviews.</div>
+    </div>
+    <div class="block">
+      <div class="label">Signal</div>
+      <div class="body-text">Milestone reviews need a shared grading vocabulary. When vendors report "combat feels off" or "menu is confusing," design can't prioritize. When vendors report a feature as grade C in Development phase against a B-grade ship bar, design knows exactly how far the gap is and what has to close it.</div>
+    </div>
+  </div>
+
+  <div class="visual">
+    <svg width="100%" viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg">
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="20" y="13">The QX (Quality Experience) Scale</text>
+      <text font-size="9" fill="#85827c" x="20" y="24">A quality-grading framework I learned at EA and brought to the Tomb Raider vendor engagement</text>
+
+      <text font-size="9" font-weight="500" fill="#97a0a9" x="30" y="40">GDF Phase</text>
+      <text font-size="9" font-weight="500" fill="#97a0a9" x="135" y="40">QX Grade</text>
+      <text font-size="9" font-weight="500" fill="#97a0a9" x="245" y="40">Definition</text>
+
+      <line x1="20" y1="45" x2="620" y2="45" stroke="#2c2c32" stroke-width="0.5"/>
+
+      <!-- Ideation -->
+      <rect x="20" y="50" width="100" height="26" fill="#2a2535" fill-opacity="0.5" rx="3"/>
+      <text font-size="10" font-weight="500" fill="#d0cdc7" x="70" y="66" text-anchor="middle">Ideation</text>
+
+      <rect x="125" y="50" width="30" height="11" fill="#3a3a42" rx="2"/>
+      <text font-size="9" fill="#d0cdc7" x="140" y="58" text-anchor="middle">NR</text>
+      <text font-size="9" fill="#d0cdc7" x="165" y="58">Not Reviewable &middot; concept, non-interactive</text>
+
+      <rect x="125" y="65" width="30" height="11" fill="#3a3a42" rx="2"/>
+      <text font-size="9" fill="#d0cdc7" x="140" y="73" text-anchor="middle">PT</text>
+      <text font-size="9" fill="#d0cdc7" x="165" y="73">Prototype &middot; critical for proving creative direction</text>
+
+      <!-- Development -->
+      <rect x="20" y="80" width="100" height="42" fill="#1f2a24" fill-opacity="0.55" rx="3"/>
+      <text font-size="10" font-weight="500" fill="#d0cdc7" x="70" y="105" text-anchor="middle">Development</text>
+
+      <rect x="125" y="80" width="30" height="11" fill="#3a3a42" rx="2"/>
+      <text font-size="9" fill="#d0cdc7" x="140" y="88" text-anchor="middle">FL</text>
+      <text font-size="9" fill="#d0cdc7" x="165" y="88">First Look &middot; tech in game, unlocks QA feedback loop</text>
+
+      <rect x="125" y="95" width="30" height="11" fill="#3a3a42" rx="2"/>
+      <text font-size="9" fill="#d0cdc7" x="140" y="103" text-anchor="middle">D</text>
+      <text font-size="9" fill="#d0cdc7" x="165" y="103">Feature Complete &middot; closed alpha</text>
+
+      <rect x="125" y="110" width="30" height="11" fill="#3a3a42" rx="2"/>
+      <text font-size="9" fill="#d0cdc7" x="140" y="118" text-anchor="middle">C</text>
+      <text font-size="9" fill="#d0cdc7" x="165" y="118">Presentable &middot; good enough to share externally</text>
+
+      <!-- Release -->
+      <rect x="20" y="126" width="100" height="22" fill="#1f2a24" fill-opacity="0.85" rx="3"/>
+      <text font-size="10" font-weight="500" fill="#d0cdc7" x="70" y="140" text-anchor="middle">Release</text>
+
+      <rect x="125" y="126" width="30" height="11" fill="#4a6b5a" rx="2"/>
+      <text font-size="9" fill="#d0cdc7" x="140" y="134" text-anchor="middle">B</text>
+      <text font-size="9" fill="#d0cdc7" x="165" y="134">Min. Ship &middot; meets player needs</text>
+
+      <rect x="125" y="141" width="30" height="9" fill="#5a7b6a" rx="2"/>
+      <text font-size="8.5" fill="#d0cdc7" x="140" y="148" text-anchor="middle">A / A+</text>
+      <text font-size="9" fill="#d0cdc7" x="165" y="148">High Quality to Best in Class</text>
+    </svg>
+    <div class="caption">Fig 1. The QX Scale grades features by development phase and quality bar, giving design a shared vocabulary for milestone decisions.</div>
+  </div>
+
+  <div class="label">Method</div>
+  <div class="body-wide">Onboarded the vendor team to the QX Scale at engagement start. Taught them to grade features by GDF phase (Ideation, Development, Release) and QX grade (NR through A+), and shaped how their reports rolled up into milestone deliverables. Their existing experiential observations stayed; what changed was the structure they carried. A loose "menu is confusing" became "menu IA at Dev/D, needs to reach B for ship," which tells design both the current state and the delta to close. Reviewed their reports across milestones and coached the team through the full engagement, correcting grading drift, calibrating against internal builds, and keeping the rollup consistent.</div>
+
+  <div class="visual">
+    <svg width="100%" viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrX" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/>
+        </marker>
+      </defs>
+
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="20" y="14">Vendor feedback: before and after the QX Scale</text>
+      <text font-size="9" fill="#85827c" x="20" y="26">Raw observations became graded findings design could prioritize at milestone reviews</text>
+
+      <text font-size="10" font-weight="500" fill="#c05050" x="20" y="46">Before</text>
+      <text font-size="9" fill="#85827c" x="55" y="46">unstructured</text>
+
+      <rect x="20" y="52" width="270" height="16" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="3"/>
+      <text font-size="9" fill="#d0cdc7" x="30" y="63">"Combat encounter feels off"</text>
+
+      <rect x="20" y="71" width="270" height="16" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="3"/>
+      <text font-size="9" fill="#d0cdc7" x="30" y="82">"Menu is confusing"</text>
+
+      <rect x="20" y="90" width="270" height="16" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="3"/>
+      <text font-size="9" fill="#d0cdc7" x="30" y="101">"Traversal is janky"</text>
+
+      <rect x="20" y="109" width="270" height="16" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="3"/>
+      <text font-size="9" fill="#d0cdc7" x="30" y="120">"Boss fight needs work"</text>
+
+      <line x1="300" y1="88" x2="340" y2="88" stroke="#85827c" stroke-width="1" fill="none" marker-end="url(#arrX)"/>
+      <text font-size="8.5" fill="#85827c" font-style="italic" x="320" y="82" text-anchor="middle">QX Scale</text>
+      <text font-size="8.5" fill="#85827c" font-style="italic" x="320" y="100" text-anchor="middle">onboarding</text>
+
+      <text font-size="10" font-weight="500" fill="#97a0a9" x="350" y="46">After</text>
+      <text font-size="9" fill="#85827c" x="380" y="46">graded, phased, actionable</text>
+
+      <rect x="350" y="52" width="270" height="16" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="3"/>
+      <rect x="355" y="55" width="36" height="11" fill="#4a6b5a" rx="2"/>
+      <text font-size="7.5" fill="#d0cdc7" x="373" y="63" text-anchor="middle">Dev / C</text>
+      <text font-size="9" fill="#d0cdc7" x="397" y="63">Combat pacing below ship bar</text>
+
+      <rect x="350" y="71" width="270" height="16" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="3"/>
+      <rect x="355" y="74" width="36" height="11" fill="#4a6b5a" rx="2"/>
+      <text font-size="7.5" fill="#d0cdc7" x="373" y="82" text-anchor="middle">Dev / D</text>
+      <text font-size="9" fill="#d0cdc7" x="397" y="82">Menu IA feature-complete only</text>
+
+      <rect x="350" y="90" width="270" height="16" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="3"/>
+      <rect x="355" y="93" width="36" height="11" fill="#4a6b5a" rx="2"/>
+      <text font-size="7.5" fill="#d0cdc7" x="373" y="101" text-anchor="middle">Rel / B</text>
+      <text font-size="9" fill="#d0cdc7" x="397" y="101">Traversal at min-ship grade</text>
+
+      <rect x="350" y="109" width="270" height="16" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="3"/>
+      <rect x="355" y="112" width="36" height="11" fill="#4a6b5a" rx="2"/>
+      <text font-size="7.5" fill="#d0cdc7" x="373" y="120" text-anchor="middle">Dev / C</text>
+      <text font-size="9" fill="#d0cdc7" x="397" y="120">Boss encounter: presentable</text>
+    </svg>
+    <div class="caption">Fig 2. Vendor reports became graded against the QX Scale, giving design a consistent vocabulary across milestones.</div>
+  </div>
+
+  <div class="label">Insight</div>
+  <div class="body-wide">Raw observations are inputs, not findings. A shared framework turns what vendors see into something design can act on consistently. The QX Scale does this for AAA quality work: it names the bar, names the phase, and gives the rollup a common unit of measure. Once vendor feedback is graded that way, milestone acceptance decisions and go/no-go calls move from "which feedback do we trust" to "which grades meet the ship bar."</div>
+
+  <div class="label">Action &amp; outcome</div>
+  <ul class="beats">
+    <li>Onboarded the vendor team (10-15 engineers across multiple studios) to the QX Scale at engagement start, with training covering GDF phase grading and QX grade definitions</li>
+    <li>Reviewed vendor reports and coached the team across milestones, correcting grading drift and calibrating against internal builds so rollups stayed consistent</li>
+    <li>Vendor feedback quality improved measurably: graded findings fed directly into milestone acceptance reports and go/no-go decisions, replacing subjective "feels off" language with quantified grade-to-bar deltas design and production could act on</li>
+  </ul>
+            </div>
+            <button class="case-collapse-btn" onclick="collapseFromBottom(this)">↑ Collapse case study</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="case-collapse-btn" onclick="collapseFromBottom(this)">↑ Collapse engagement</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============== BFM Cases 01 + 03 (full width, vertically stacked) ============== -->
+
+<div class="case-wrap" id="case-01">
+  <button class="case-trigger" onclick="toggleCase(this)">
+    <div class="case-eyebrow">Battlefield Mobile · FTUE redesign</div>
+    <div class="case-title">The FTUE checklist that shipped on paper but not in play</div>
+    <div class="case-hook">Three drop points across the first hour. Completion rate looked acceptable. Retention at each transition didn't.</div>
+    <div class="case-cta" data-collapsed="Expand case study ↓" data-expanded="Collapse ↑">Expand case study ↓</div>
+  </button>
+  <div class="case-deep">
+    <div class="case-deep-inner">
+      <div class="case-body">
+        <p class="subtitle">Rebuilding the first hour of a Battlefield title around player experience, not just mechanics</p>
+
+  <div class="grid-2">
+    <div class="block">
+      <div class="label">Context</div>
+      <div class="body-text">Battlefield Mobile, pre-launch. FTUE put the player on Grand Bazaar, walked them through aim, shoot, ammo pickup, traversal, and tank driving, then dropped them into a nerfed bot match to practice. On paper the FTUE covered the right mechanics. Longitudinal playtests and internal feedback said the moment-to-moment experience was flat.</div>
+    </div>
+    <div class="block">
+      <div class="label">Signal</div>
+      <div class="body-text">Three drop points surfaced in the telemetry: mid-FTUE (before the rocket launcher step), post-FTUE (before entering the bot match), and a few minutes into the first bot match itself. Completion rate looked acceptable. Retention at each transition didn't.</div>
+    </div>
+  </div>
+
+  <div class="visual">
+    <svg width="100%" viewBox="0 0 640 195" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/>
+        </marker>
+      </defs>
+
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="30" y="16">Player flow through FTUE and first bot match</text>
+      <text font-size="9" fill="#85827c" x="30" y="30">Three drop points. Each told a different part of the story.</text>
+
+      <!-- FTUE start: 100% -->
+      <rect x="60" y="44" width="440" height="20" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="2"/>
+      <rect x="60" y="44" width="440" height="20" fill="#3a3a42" rx="2"/>
+      <text font-size="10" fill="#d0cdc7" x="70" y="58">FTUE start (Grand Bazaar)</text>
+      <text font-size="9.5" fill="#85827c" x="512" y="58">100%</text>
+
+      <!-- Mechanics block complete: 92% -->
+      <rect x="60" y="69" width="440" height="20" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="2"/>
+      <rect x="60" y="69" width="405" height="20" fill="#3a3a42" rx="2"/>
+      <text font-size="10" fill="#d0cdc7" x="70" y="83">Mechanics block complete</text>
+      <text font-size="9.5" fill="#85827c" x="512" y="83">92%</text>
+
+      <!-- DROP 1 -->
+      <rect x="60" y="94" width="440" height="20" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="2"/>
+      <rect x="60" y="94" width="299" height="20" fill="#6a2929" stroke="#8a3535" stroke-width="0.5" rx="2"/>
+      <text font-size="10" fill="#d0cdc7" x="70" y="108">Rocket launcher / destruction</text>
+      <text font-size="9.5" fill="#c05050" x="512" y="108">68%</text>
+      <text font-size="8.5" fill="#c05050" font-style="italic" x="555" y="108">Drop 1</text>
+
+      <!-- FTUE complete: 58% -->
+      <rect x="60" y="119" width="440" height="20" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="2"/>
+      <rect x="60" y="119" width="255" height="20" fill="#3a3a42" rx="2"/>
+      <text font-size="10" fill="#d0cdc7" x="70" y="133">FTUE complete</text>
+      <text font-size="9.5" fill="#85827c" x="512" y="133">58%</text>
+
+      <!-- DROP 2 -->
+      <rect x="60" y="144" width="440" height="20" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="2"/>
+      <rect x="60" y="144" width="167" height="20" fill="#6a2929" stroke="#8a3535" stroke-width="0.5" rx="2"/>
+      <text font-size="10" fill="#d0cdc7" x="70" y="158">Entered first bot match</text>
+      <text font-size="9.5" fill="#c05050" x="512" y="158">38%</text>
+      <text font-size="8.5" fill="#c05050" font-style="italic" x="555" y="158">Drop 2</text>
+
+      <!-- DROP 3 -->
+      <rect x="60" y="169" width="440" height="20" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="2"/>
+      <rect x="60" y="169" width="110" height="20" fill="#6a2929" stroke="#8a3535" stroke-width="0.5" rx="2"/>
+      <text font-size="10" fill="#d0cdc7" x="70" y="183">Played past first few minutes</text>
+      <text font-size="9.5" fill="#c05050" x="512" y="183">25%</text>
+      <text font-size="8.5" fill="#c05050" font-style="italic" x="555" y="183">Drop 3</text>
+    </svg>
+    <div class="caption">Fig 1. Three drop points across FTUE and first bot match. Each required a different read.</div>
+  </div>
+
+  <div class="label">Method</div>
+  <div class="body-wide">I worked each drop against telemetry and longitudinal playtest feedback. Drop 1, mid-FTUE: players completed the mechanics content and left before picking up the rocket launcher, the step that was meant to deliver Battlefield destruction VFX. The qualitative theme was that the tutorial felt mechanical and hand-holdy. Drop 2, post-FTUE: players finished the tutorial but didn't enter the bot match. They had will, not motivation. Drop 3, inside the match: players who entered quit within a few minutes. The bot tuning was fine. The experience leading up to it hadn't made them want to be there. Across all three, the pattern synthesized to one diagnosis: the moment-to-moment experience was flat, too linear, and not recognizably Battlefield.</div>
+
+  <div class="label">Insight</div>
+  <div class="body-wide">The FTUE was completing its job as a tutorial and failing its job as a first impression. Teaching a player how to aim and move is not the same as showing them why Battlefield is Battlefield. The destruction, the scale, the squad feel, the reasons someone picks up this game, were absent from the hour that decided whether they kept playing. The fix couldn't be tuning the existing FTUE. The FTUE needed to be rebuilt around the experience, not the checklist.</div>
+
+  <div class="visual">
+    <svg width="100%" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/>
+        </marker>
+      </defs>
+
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="30" y="14">FTUE redesign: before and after</text>
+      <text font-size="9" fill="#85827c" x="30" y="28">From mechanics checklist to cinematic cold-open</text>
+
+      <!-- BEFORE row -->
+      <text font-size="10" font-weight="500" fill="#c05050" x="30" y="48">Before</text>
+
+      <rect x="30" y="54" width="105" height="34" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="4"/>
+      <text font-size="9" fill="#d0cdc7" x="82.5" y="68" text-anchor="middle">Grand Bazaar</text>
+      <text font-size="8.5" fill="#85827c" x="82.5" y="81" text-anchor="middle" font-style="italic">solo, quiet</text>
+
+      <line x1="137" y1="71" x2="150" y2="71" stroke="#85827c" stroke-width="1" fill="none" marker-end="url(#arrB)"/>
+
+      <rect x="152" y="54" width="105" height="34" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="4"/>
+      <text font-size="9" fill="#d0cdc7" x="204.5" y="68" text-anchor="middle">Mechanics drill</text>
+      <text font-size="8.5" fill="#85827c" x="204.5" y="81" text-anchor="middle" font-style="italic">aim, shoot, move</text>
+
+      <line x1="259" y1="71" x2="272" y2="71" stroke="#85827c" stroke-width="1" fill="none" marker-end="url(#arrB)"/>
+
+      <rect x="274" y="54" width="105" height="34" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="4"/>
+      <text font-size="9" fill="#d0cdc7" x="326.5" y="68" text-anchor="middle">Rocket launcher</text>
+      <text font-size="8.5" fill="#85827c" x="326.5" y="81" text-anchor="middle" font-style="italic">pick up, fire at wall</text>
+
+      <line x1="381" y1="71" x2="394" y2="71" stroke="#85827c" stroke-width="1" fill="none" marker-end="url(#arrB)"/>
+
+      <rect x="396" y="54" width="105" height="34" fill="#252529" stroke="#3a3a42" stroke-width="0.5" rx="4"/>
+      <text font-size="9" fill="#d0cdc7" x="448.5" y="68" text-anchor="middle">Bot match</text>
+      <text font-size="8.5" fill="#85827c" x="448.5" y="81" text-anchor="middle" font-style="italic">nerfed bots, solo</text>
+
+      <text font-size="9" fill="#c05050" font-style="italic" x="510" y="76" text-anchor="start">linear, flat</text>
+
+      <!-- Divider -->
+      <line x1="30" y1="96" x2="610" y2="96" stroke="#2c2c32" stroke-width="0.5" stroke-dasharray="2 3"/>
+
+      <!-- AFTER row -->
+      <text font-size="10" font-weight="500" fill="#97a0a9" x="30" y="114">After</text>
+
+      <rect x="30" y="120" width="105" height="34" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="4"/>
+      <text font-size="9" fill="#d0cdc7" x="82.5" y="134" text-anchor="middle">Cutscene</text>
+      <text font-size="8.5" fill="#85827c" x="82.5" y="147" text-anchor="middle" font-style="italic">new map, helicopter</text>
+
+      <line x1="137" y1="137" x2="150" y2="137" stroke="#85827c" stroke-width="1" fill="none" marker-end="url(#arrB)"/>
+
+      <rect x="152" y="120" width="105" height="34" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="4"/>
+      <text font-size="9" fill="#d0cdc7" x="204.5" y="134" text-anchor="middle">Buddy + VO guide</text>
+      <text font-size="8.5" fill="#85827c" x="204.5" y="147" text-anchor="middle" font-style="italic">not alone, in-world</text>
+
+      <line x1="259" y1="137" x2="272" y2="137" stroke="#85827c" stroke-width="1" fill="none" marker-end="url(#arrB)"/>
+
+      <rect x="274" y="120" width="105" height="34" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="4"/>
+      <text font-size="9" fill="#d0cdc7" x="326.5" y="134" text-anchor="middle">Rocket from air</text>
+      <text font-size="8.5" fill="#85827c" x="326.5" y="147" text-anchor="middle" font-style="italic">destruction VFX</text>
+
+      <line x1="381" y1="137" x2="394" y2="137" stroke="#85827c" stroke-width="1" fill="none" marker-end="url(#arrB)"/>
+
+      <rect x="396" y="120" width="105" height="34" fill="#1f2a24" stroke="#4a6b5a" stroke-width="0.5" rx="4"/>
+      <text font-size="9" fill="#d0cdc7" x="448.5" y="134" text-anchor="middle">Bot match</text>
+      <text font-size="8.5" fill="#85827c" x="448.5" y="147" text-anchor="middle" font-style="italic">same, now earned</text>
+
+      <text font-size="9" fill="#97a0a9" font-style="italic" x="510" y="142" text-anchor="start">cinematic, earned</text>
+    </svg>
+    <div class="caption">Fig 2. The redesigned FTUE opened with a cutscene on a different map, delivered destruction VFX from a helicopter, and kept the player company with a buddy and VO throughout.</div>
+  </div>
+
+  <div class="label">Action &amp; outcome</div>
+  <ul class="beats">
+    <li>Presented the three-drop diagnosis to design and UX with telemetry and qualitative feedback side by side, recommending the FTUE be rebuilt around player experience, not mechanics coverage</li>
+    <li>The team agreed the hypothesis held and committed to a full FTUE redesign. I stayed involved as the embedded analyst voice, validating changes against the original drop points</li>
+    <li>The shipped redesign opened with a cutscene on a different map, put the player in a helicopter with a buddy on VO, delivered destruction VFX via a rocket fired from the air, and arrived at the bot match with the game's identity already established. FTUE completion, transition-to-first-match, loadout engagement, and deeper-level progression all improved against pre-change baselines</li>
+  </ul>
+      </div>
+      <button class="case-collapse-btn" onclick="collapseFromBottom(this)">↑ Collapse case study</button>
+    </div>
+  </div>
+</div>
+
+<div class="case-wrap" id="case-03">
+  <button class="case-trigger" onclick="toggleCase(this)">
+    <div class="case-eyebrow">Battlefield Mobile · Progression sequencing</div>
+    <div class="case-title">A difficulty curve running backwards</div>
+    <div class="case-hook">Performance dips clustered at gates where new weapons unlocked. Weapon tuning looked fine in isolation. The signal was in the sequencing.</div>
+    <div class="case-cta" data-collapsed="Expand case study ↓" data-expanded="Collapse ↑">Expand case study ↓</div>
+  </button>
+  <div class="case-deep">
+    <div class="case-deep-inner">
+      <div class="case-body">
+        <p class="subtitle">Weapon and attachment unlock sequencing against the player's learning curve</p>
+
+  <div class="grid-2">
+    <div class="block">
+      <div class="label">Context</div>
+      <div class="body-text">Battlefield Mobile, across multiple pre-launch milestones. Players past FTUE were levelling through the early progression curve, unlocking weapons and attachments as they went. Combat design was getting difficulty feedback that didn't point at any single weapon or level.</div>
+    </div>
+    <div class="block">
+      <div class="label">Signal</div>
+      <div class="body-text">Telemetry showed player performance dips clustered at specific level gates. The drops lined up with levels where new weapons unlocked, but weapon tuning metrics looked fine in isolation. The signal pointed at the sequencing, not any individual weapon.</div>
+    </div>
+  </div>
+
+  <div class="visual">
+    <svg width="100%" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/>
+        </marker>
+      </defs>
+
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="30" y="22">Handling complexity vs. unlock level</text>
+      <text font-size="9" fill="#85827c" x="30" y="36">The curve should rise gently. It doesn't.</text>
+
+      <text font-size="9" fill="#85827c" x="22" y="62" text-anchor="end">hard</text>
+      <text font-size="9" fill="#85827c" x="22" y="148" text-anchor="end">easy</text>
+
+      <line stroke="#2c2c32" stroke-width="0.5" x1="24" y1="155" x2="300" y2="155"/>
+      <line stroke="#2c2c32" stroke-width="0.5" x1="24" y1="50" x2="24" y2="155"/>
+
+      <path d="M 40 138 Q 100 120 160 95 T 285 62" fill="none" stroke="#4a4a52" stroke-width="0.8" stroke-dasharray="3 3"/>
+      <text font-size="9" fill="#85827c" font-style="italic" x="110" y="132" text-anchor="middle">intended curve</text>
+
+      <path d="M 45 72 L 85 92 L 125 115 L 165 88 L 205 108 L 245 65 L 285 78" fill="none" stroke="#c05050" stroke-width="1.5"/>
+
+      <circle cx="45" cy="72" r="3.5" fill="#c05050"/>
+      <circle cx="85" cy="92" r="3" fill="#d0cdc7"/>
+      <circle cx="125" cy="115" r="3" fill="#d0cdc7"/>
+      <circle cx="165" cy="88" r="3" fill="#d0cdc7"/>
+      <circle cx="205" cy="108" r="3" fill="#d0cdc7"/>
+      <circle cx="245" cy="65" r="3.5" fill="#c05050"/>
+      <circle cx="285" cy="78" r="3" fill="#d0cdc7"/>
+
+      <text font-size="8.5" fill="#d0cdc7" x="45" y="170" text-anchor="middle">DMR</text>
+      <text font-size="8.5" fill="#85827c" x="85" y="170" text-anchor="middle">SG</text>
+      <text font-size="8.5" fill="#85827c" x="125" y="170" text-anchor="middle">SMG</text>
+      <text font-size="8.5" fill="#85827c" x="165" y="170" text-anchor="middle">LMG</text>
+      <text font-size="8.5" fill="#85827c" x="205" y="170" text-anchor="middle">SNP</text>
+      <text font-size="8.5" fill="#d0cdc7" x="245" y="170" text-anchor="middle">AR</text>
+      <text font-size="8.5" fill="#85827c" x="285" y="170" text-anchor="middle">PDW</text>
+
+      <text font-size="9" fill="#85827c" x="30" y="188">Unlock level &rarr;</text>
+
+      <text font-size="9" fill="#c05050" font-style="italic" x="70" y="65" text-anchor="start">hard early</text>
+      <line stroke="#c05050" stroke-width="0.5" x1="52" y1="72" x2="68" y2="65"/>
+      <text font-size="9" fill="#c05050" font-style="italic" x="220" y="58" text-anchor="start">forgiving late</text>
+      <line stroke="#c05050" stroke-width="0.5" x1="240" y1="62" x2="222" y2="58"/>
+
+      <line x1="320" y1="50" x2="320" y2="175" stroke="#2c2c32" stroke-width="0.5" stroke-dasharray="2 3"/>
+
+      <text font-size="11" font-weight="500" fill="#d0cdc7" x="350" y="22">Cohort performance by level</text>
+      <text font-size="9" fill="#85827c" x="350" y="36">Drops align with hard-weapon unlock gates</text>
+
+      <line stroke="#2c2c32" stroke-width="0.5" x1="344" y1="155" x2="620" y2="155"/>
+      <line stroke="#2c2c32" stroke-width="0.5" x1="344" y1="50" x2="344" y2="155"/>
+
+      <text font-size="9" fill="#85827c" x="340" y="88" text-anchor="end">baseline</text>
+      <line stroke="#85827c" stroke-width="0.5" stroke-dasharray="4 3" x1="344" y1="86" x2="620" y2="86"/>
+
+      <path d="M 355 86 L 385 82 L 415 120 L 440 110 L 465 88 L 490 92 L 515 128 L 540 115 L 570 90 L 600 88" fill="none" stroke="#97a0a9" stroke-width="1.5"/>
+
+      <circle cx="415" cy="120" r="3" fill="#c05050"/>
+      <circle cx="515" cy="128" r="3" fill="#c05050"/>
+
+      <line x1="415" y1="120" x2="415" y2="155" stroke="#c05050" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <line x1="515" y1="128" x2="515" y2="155" stroke="#c05050" stroke-width="0.5" stroke-dasharray="2 2"/>
+
+      <text font-size="8.5" fill="#c05050" x="415" y="170" text-anchor="middle">DMR gate</text>
+      <text font-size="8.5" fill="#c05050" x="515" y="170" text-anchor="middle">SNP gate</text>
+
+      <text font-size="9" fill="#85827c" x="350" y="188">Player level &rarr;</text>
+    </svg>
+    <div class="caption">Fig 1. Handling complexity did not rise monotonically with unlock level (left). Performance dips in the telemetry lined up with the gates where hard-to-handle weapons unlocked (right).</div>
+  </div>
+
+  <div class="label">Method</div>
+  <div class="body-wide">I ran two parallel moves. First, a handling-complexity map: I scored each weapon archetype on handling difficulty (recoil management, range discipline, positional awareness) and plotted that against its unlock level. The curve should have risen gently, introducing forgiving archetypes first and harder ones as players built habits. The actual curve was jagged. DMRs unlocked early, before players had space to develop range discipline. More forgiving archetypes unlocked later, when players had already hit a wall. Attachments had the same problem. Recoil-reducing attachments were gated behind levels the learning curve itself was making hard to reach. I paired this with cohort performance analysis from the internal playtests and telemetry, and the performance dips by level lined up almost exactly with the gates where hard-to-handle weapons unlocked.</div>
+
+  <div class="label">Insight</div>
+  <div class="body-wide">The progression system was testing players at the wrong times. High-skill-ceiling weapons unlocked before players had the habits to use them. Forgiving archetypes and recoil-reducing attachments unlocked later, after players had already fought through the levels that needed them. The difficulty curve was running backwards against the learning curve. Because this one system shaped the entire early-game experience, resequencing it would lift the whole early progression, not only the weapons we changed.</div>
+
+  <div class="secondary-finding">
+    <div class="sf-label">Secondary finding</div>
+    <div class="sf-body">When I mapped the sequencing analysis against the live map rotation, a second bug surfaced that nobody had been tracking: matchmaking was selecting maps at random, with no reference to what the player had unlocked. Long-sightline maps were pulling players still in the close-range tier, and vice versa, compounding the sequencing problem.</div>
+  </div>
+
+  <div class="label">Action &amp; outcome</div>
+  <ul class="beats">
+    <li>Recommended a phased rollout to design leadership: pilot the resequencing on three weapon archetypes in a pre-launch external beta, validate with real players before committing to a full change</li>
+    <li>Pilot telemetry and qualitative feedback from the beta cohort both improved. Performance dips at the piloted gates smoothed out, and difficulty-related complaints dropped in the same cycle</li>
+    <li>Scaled the resequencing to the remaining weapon archetypes and attachment unlock orders; the improvement compounded across the whole early progression</li>
+    <li>Matchmaking logic gap was flagged to engineering in parallel and fixed in a following milestone</li>
+    <li>Telemetry, playtest qualitative feedback, and real-world beta player sentiment all improved significantly against pre-change baselines</li>
+  </ul>
+      </div>
+      <button class="case-collapse-btn" onclick="collapseFromBottom(this)">↑ Collapse case study</button>
+    </div>
+  </div>
+</div>
+
+</div>
+</div></section>
+
 <section id="pillars"><div class="container">
 <div class="pillar-tabs">
-<div class="pillar-tab active" onclick="switchPillar('quality',this)">Product Quality</div>
+<div class="pillar-tab active" onclick="switchPillar('quality',this)">Product Quality Analysis</div>
 <div class="pillar-tab" onclick="switchPillar('production',this)">Game Production</div>
 </div>
 
@@ -332,8 +1091,8 @@ nav .links{gap:14px} nav .links a{font-size:11px}
 
 <div style="margin-top:28px">
 <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Work Samples</div>
-<div style="font-family:var(--font-display);font-weight:600;font-size:18px;margin-bottom:4px">Quality Design Frameworks & Player Analysis</div>
-<div style="font-size:12px;color:var(--text-muted);margin-bottom:14px">EA Experience Design Playbooks · Quality Design Frameworks · Competitive Analysis</div>
+<div style="font-family:var(--font-display);font-weight:600;font-size:18px;margin-bottom:4px">Player Research Methods & Player Analysis</div>
+<div style="font-size:12px;color:var(--text-muted);margin-bottom:14px">Player Experience Playbooks · Player Research Methods · Competitive Analysis</div>
 
 <div class="carousel" id="wsCarousel">
 <button class="carousel-btn prev" onclick="moveWS(-1)">&#8249;</button>
@@ -343,19 +1102,19 @@ nav .links{gap:14px} nav .links a{font-size:11px}
 <div class="carousel-caption"><div class="cap-title">Gameplay Quality Principles</div><div class="cap-sub">4-pillar framework: Quality Grading, Survey Pool, Competitive Analysis, Feedback Loop</div></div>
 </div>
 <div class="carousel-slide">
-<div class="carousel-caption"><div class="cap-title">QDF inside the Game Development Framework</div><div class="cap-sub">Quality Design tasks mapped across Ideation, Development, Release, and Live Service gates</div></div>
+<div class="carousel-caption"><div class="cap-title">Methodology phases across the Game Development Framework <span class="cap-wip">WIP</span></div><div class="cap-sub">Research and analysis tasks mapped across Ideation, Development, Release, and Live Service gates</div></div>
 </div>
 <div class="carousel-slide">
-<div class="carousel-caption"><div class="cap-title">EA Experience Design Playbook: Player Journeys</div><div class="cap-sub">FIFA 18 and Madden 18 install match journey maps with engagement curves</div></div>
+<div class="carousel-caption"><div class="cap-title">Player Experience Playbook: Player Journeys <span class="cap-wip">WIP</span></div><div class="cap-sub">FIFA 18 and Madden 18 install match journey maps with engagement curves</div></div>
 </div>
 <div class="carousel-slide">
-<div class="carousel-caption"><div class="cap-title">Player Journey Framework</div><div class="cap-sub">8-component framework: Who, What, Phases, Doing, Thinking, Feeling, Opportunities, Ownership</div></div>
+<div class="carousel-caption"><div class="cap-title">Player Journey Framework <span class="cap-wip">WIP</span></div><div class="cap-sub">8-component framework: Who, What, Phases, Doing, Thinking, Feeling, Opportunities, Ownership</div></div>
 </div>
 <div class="carousel-slide">
-<div class="carousel-caption"><div class="cap-title">EA Segmentation Best Practices</div><div class="cap-sub">Player Behavior to Cohorts: User-level Analysis, LCM Targeting, Recommendations</div></div>
+<div class="carousel-caption"><div class="cap-title">Player Segmentation Methodology <span class="cap-wip">WIP</span></div><div class="cap-sub">Player Behavior to Cohorts: User-level Analysis, Lifecycle Targeting, Recommendations</div></div>
 </div>
 <div class="carousel-slide">
-<div class="carousel-caption"><div class="cap-title">EA XD Play: Onboarding Methodology</div><div class="cap-sub">Player Lens, Outcomes, Journey Map, Sketch, Prototype, Test + Iterate, Measure</div></div>
+<div class="carousel-caption"><div class="cap-title">Onboarding Design Methodology <span class="cap-wip">WIP</span></div><div class="cap-sub">Player Lens, Outcomes, Journey Map, Sketch, Prototype, Test + Iterate, Measure</div></div>
 </div>
 </div>
 <button class="carousel-btn next" onclick="moveWS(1)">&#8250;</button>
@@ -370,22 +1129,29 @@ nav .links{gap:14px} nav .links a{font-size:11px}
 </div>
 </div>
 
-<div style="margin-top:28px">
-<div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Featured</div>
-<div style="font-family:var(--font-display);font-weight:600;font-size:18px;margin-bottom:14px">Gameplay Quality Principles</div>
-<div class="cap-card" style="cursor:default">
-<div class="cap-surface">
-<div class="gqp-preview" id="gqpPreview" style="border-radius:6px;overflow:hidden;border:1px solid var(--border);cursor:pointer" onclick="document.getElementById('gqpModal').classList.add('show')">
-</div>
-<div style="margin-top:14px;font-size:13.5px;color:var(--text-muted);line-height:1.65">
-<strong style="color:var(--text)">4-pillar framework</strong> I developed at EA and refined across Amazon Games titles: Quality Grading, Survey Pool, Competitive Analysis, and Feedback Loop. Defines how production targets connect to quality grades, how diverse feedback sources validate those grades, and how competitive insights and structured feedback loops drive prioritized action items back into the development cycle.
-</div>
-</div>
+<!-- ============== PM Report (expand-to-iframe) ============== -->
+<div style="margin-top:24px">
+<div class="case-wrap" id="pm-report">
+  <button class="case-trigger" onclick="toggleCase(this)">
+    <div class="case-eyebrow">Battlefield Mobile · EA · Competitive analysis</div>
+    <div class="case-title">Mobile Shooter Post-Mortem: Rules of Survival</div>
+    <div class="case-hook">Why a first-mover mobile Battle Royale lost market share to PUBG Mobile, Free Fire, and Call of Duty: Mobile. 23-slide competitive report synthesizing market data, player sentiment, content creator dynamics, monetization, and feature analysis with applied recommendations for EA Mobile shooter strategy.</div>
+    <div class="case-cta" data-collapsed="View full report ↓" data-expanded="Collapse ↑">View full report ↓</div>
+  </button>
+  <div class="case-deep">
+    <div class="case-deep-inner">
+      <div class="case-body">
+        <iframe class="pdf-embed" src="PM_Report_Work_Sample.pdf" title="Mobile Shooter Post-Mortem: Rules of Survival" loading="lazy"></iframe>
+        <div class="pdf-fallback">If the report doesn't render inline, <a href="PM_Report_Work_Sample.pdf" target="_blank">open the PDF in a new tab ↗</a></div>
+      </div>
+      <button class="case-collapse-btn" onclick="collapseFromBottom(this)">↑ Collapse report</button>
+    </div>
+  </div>
 </div>
 </div>
 
 <div style="margin-top:36px">
-<div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Media</div>
+<div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Media <span style="display:inline-block;font-size:9px;font-weight:600;letter-spacing:0.08em;color:var(--text-muted);background:var(--surface-hover);border:1px solid var(--border);padding:1px 7px;border-radius:3px;margin-left:6px;vertical-align:middle;text-transform:uppercase">Work in Progress</span></div>
 <div style="font-family:var(--font-display);font-weight:600;font-size:18px;margin-bottom:14px">Shipped Titles & Game Assets</div>
 
 <div class="carousel" id="mediaCarousel">
@@ -481,20 +1247,140 @@ nav .links{gap:14px} nav .links a{font-size:11px}
 
 </div></section>
 
-<section id="testimonials"><div class="container">
-<div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Recognition</div>
-<div style="font-family:var(--font-display);font-weight:600;font-size:22px;margin-bottom:18px">Testimonials & Credits</div>
-<div class="testimonial-card">
-<div class="quote">"Special thanks to Sritej Canchi for taking the lead on this month's report!"</div>
-<div class="attrib">Matt Dion, Lead Product Manager, EA (Industrial Toys)</div>
+<section id="skills"><div class="container">
+<div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Skills</div>
+<div style="font-family:var(--font-display);font-weight:600;font-size:22px;margin-bottom:8px">Methods, systems, and tools</div>
+<div style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin-bottom:24px;max-width:720px">Skills evidenced in the work above, organized by the kind of problem they apply to.</div>
+
+<div class="skills-grid">
+
+<div>
+<div class="skill-cat-label">Player Research & Playtesting</div>
+<div class="skill-tags">
+<span class="skill-tag">Gameplay test design (prototype to pre-launch)</span>
+<span class="skill-tag">Longitudinal playtesting</span>
+<span class="skill-tag">Usability testing</span>
+<span class="skill-tag">Surveys & questionnaires</span>
+<span class="skill-tag">Think-aloud protocols</span>
+<span class="skill-tag">Structured observation</span>
+<span class="skill-tag">Focus groups</span>
+<span class="skill-tag">Field research</span>
+<span class="skill-tag">Comparative gameplay analysis</span>
+<span class="skill-tag">Comparative case analysis</span>
+<span class="skill-tag">Cultural risk analysis methodology</span>
 </div>
-<div style="margin-top:20px;font-size:13px;color:var(--text-muted)">
-<strong style="color:var(--text)">Game Credits:</strong> Tomb Raider (Legacy of Atlantis, Catalyst)* · Lost Ark · New World · Throne & Liberty · King of Meat · Battlefield Mobile · Command & Conquer: Rivals · The Sims FreePlay · The Sims Mobile · ArchiTac · Choreografish · Trauma XR · Drone Commander
-<br><span style="font-size:11px">*in-development</span>
 </div>
-<div style="margin-top:14px;font-size:13px;color:var(--text-muted)">
-<strong style="color:var(--text)">Presentations:</strong> Silicon Slopes Tech Summit 2019 & 2020
+
+<div>
+<div class="skill-cat-label">Player Behavior & Analytics</div>
+<div class="skill-tags">
+<span class="skill-tag">FTUE funnel analysis</span>
+<span class="skill-tag">Telemetry event design & validation</span>
+<span class="skill-tag">Root cause analysis</span>
+<span class="skill-tag">Player segmentation</span>
+<span class="skill-tag">Lifecycle management (LCM)</span>
+<span class="skill-tag">Player journey mapping</span>
+<span class="skill-tag">Engagement & retention analysis</span>
+<span class="skill-tag">Crash analytics</span>
+<span class="skill-tag">Insight reporting</span>
+<span class="skill-tag">Milestone Acceptance Reports</span>
 </div>
+</div>
+
+<div>
+<div class="skill-cat-label">Gameplay Systems & Methodology</div>
+<div class="skill-tags">
+<span class="skill-tag">Onboarding / FTUE</span>
+<span class="skill-tag">Controls</span>
+<span class="skill-tag">Progression</span>
+<span class="skill-tag">Difficulty tuning</span>
+<span class="skill-tag">Engagement loops</span>
+<span class="skill-tag">Weapon balance</span>
+<span class="skill-tag">Multiplayer dynamics</span>
+<span class="skill-tag">Live service operations</span>
+<span class="skill-tag">Monetization loops</span>
+<span class="skill-tag">QX Scale (Quality Experience) grading</span>
+<span class="skill-tag">GDF phase grading</span>
+<span class="skill-tag">Shift-left risk evaluation</span>
+</div>
+</div>
+
+<div>
+<div class="skill-cat-label">Cross-Functional & Vendor</div>
+<div class="skill-tags">
+<span class="skill-tag">Cross-functional collaboration (Design, PM, UXR, Engineering, Production)</span>
+<span class="skill-tag">Third-party QA & research vendor management</span>
+<span class="skill-tag">Methodology transfer & coaching</span>
+<span class="skill-tag">External partner alignment</span>
+<span class="skill-tag">Cultural nuance feedback</span>
+<span class="skill-tag">Stakeholder communication</span>
+</div>
+</div>
+
+<div>
+<div class="skill-cat-label">BI & Analytics Tools</div>
+<div class="skill-tags">
+<span class="skill-tag">Amazon QuickSight</span>
+<span class="skill-tag">Tableau</span>
+<span class="skill-tag">Power BI / DAX</span>
+<span class="skill-tag">Firebase Crashlytics</span>
+</div>
+</div>
+
+<div>
+<div class="skill-cat-label">Task & Defect Management</div>
+<div class="skill-tags">
+<span class="skill-tag">JIRA / JQL</span>
+<span class="skill-tag">Confluence</span>
+<span class="skill-tag">TestRail</span>
+<span class="skill-tag">Miro</span>
+</div>
+</div>
+
+<div>
+<div class="skill-cat-label">Engineering & Cloud</div>
+<div class="skill-tags">
+<span class="skill-tag">Python</span>
+<span class="skill-tag">Jenkins</span>
+<span class="skill-tag">Perforce</span>
+<span class="skill-tag">Postman</span>
+<span class="skill-tag">Charles Proxy</span>
+<span class="skill-tag">AWS (Lambda, API Gateway, CloudWatch, Cognito, SNS)</span>
+<span class="skill-tag">GenAI (PartyRock, Bedrock)</span>
+</div>
+</div>
+
+<div>
+<div class="skill-cat-label">Engines & SDKs</div>
+<div class="skill-tags">
+<span class="skill-tag">UE5</span>
+<span class="skill-tag">Unity</span>
+<span class="skill-tag">Android Studio</span>
+<span class="skill-tag">Xcode</span>
+</div>
+</div>
+
+<div>
+<div class="skill-cat-label">Platforms shipped on</div>
+<div class="skill-tags">
+<span class="skill-tag">PC (Steam)</span>
+<span class="skill-tag">Console (PlayStation, Xbox, first-party cert)</span>
+<span class="skill-tag">Mobile (iOS, Android)</span>
+<span class="skill-tag">Cloud (Amazon Luna)</span>
+<span class="skill-tag">VR (Oculus Quest, HTC Vive)</span>
+</div>
+</div>
+
+<div>
+<div class="skill-cat-label">Certifications</div>
+<div class="skill-tags">
+<span class="skill-tag">Certified Scrum Master (CSM)</span>
+<span class="skill-tag">Six Sigma Green Belt</span>
+</div>
+</div>
+
+</div>
+
 </div></section>
 
 <section id="about"><div class="container">
@@ -511,20 +1397,52 @@ nav .links{gap:14px} nav .links a{font-size:11px}
 
 <section id="contact"><div class="container">
 <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Contact</div>
-<div style="font-family:var(--font-display);font-weight:600;font-size:26px;margin-bottom:8px">Get in touch</div>
-<div style="font-size:14px;color:var(--text-muted);margin-bottom:28px;max-width:500px">Open to Senior QA, Quality Design, Producer, and Gameplay Analyst roles. Based in Seattle, open to relocation.</div>
-<form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<div style="font-family:var(--font-display);font-weight:600;font-size:26px;margin-bottom:28px">Get in touch</div>
+<form class="contact-form" action="https://formspree.io/f/xrerakoy" method="POST">
 <div class="form-row">
 <div class="form-group"><label>Name</label><input type="text" name="name" required placeholder="Your name"></div>
 <div class="form-group"><label>Email</label><input type="email" name="email" required placeholder="your@email.com"></div>
 </div>
-<div class="form-group"><label>Subject</label><input type="text" name="subject" placeholder="What's this about?"></div>
-<div class="form-group"><label>Message</label><textarea name="message" rows="5" required placeholder="Tell me about the role or opportunity..."></textarea></div>
+<div class="form-group"><label>Message</label><textarea name="message" rows="5" required placeholder="Your message..."></textarea></div>
 <button type="submit" class="form-submit">Send Message</button>
 </form>
 </div></section>
 
-<footer><div class="container"><p>Sritej Canchi · <a href="mailto:sritej15@gmail.com">sritej15@gmail.com</a> · (801) 755-2307 · <a href="https://www.linkedin.com/in/sritejcanchi/" target="_blank" style="display:inline-flex;align-items:center;vertical-align:middle;margin-left:2px" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></p></div></footer>
+<script>
+function toggleCase(btn){
+  var wrap = btn.closest('.case-wrap');
+  if (wrap.classList.contains('open')) {
+    collapseCase(wrap);
+  } else {
+    expandCase(wrap);
+  }
+}
+function expandCase(wrap){
+  wrap.classList.add('open');
+  var cta = wrap.querySelector(':scope > .case-trigger .case-cta');
+  if (cta) cta.textContent = cta.dataset.expanded || 'Collapse ↑';
+}
+function collapseCase(wrap){
+  wrap.classList.remove('open');
+  var cta = wrap.querySelector(':scope > .case-trigger .case-cta');
+  if (cta) cta.textContent = cta.dataset.collapsed || 'Expand ↓';
+  // Also collapse any nested expanded children so the next reopen is clean
+  wrap.querySelectorAll('.case-wrap.open').forEach(function(child){
+    child.classList.remove('open');
+    var ccta = child.querySelector(':scope > .case-trigger .case-cta');
+    if (ccta) ccta.textContent = ccta.dataset.collapsed || 'Expand ↓';
+  });
+}
+function collapseFromBottom(btn){
+  var wrap = btn.closest('.case-wrap');
+  collapseCase(wrap);
+  // Scroll back to the trigger so the user lands on the card top, not floating in space
+  setTimeout(function(){
+    var trigger = wrap.querySelector(':scope > .case-trigger');
+    if (trigger) trigger.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 50);
+}
+</script>
 
 <script>
 function switchPillar(which,tab){
